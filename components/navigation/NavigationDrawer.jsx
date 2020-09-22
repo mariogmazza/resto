@@ -20,6 +20,12 @@ const useStyles = makeStyles((theme) => ({
   toolbar: theme.mixins.toolbar,
   drawerPaper: {
     width: drawerWidth
+  },
+  drawerBackground_List: {
+    background: '#CFD8DC'
+  },
+  divider_custom: {
+    background: '#ffa06d'
   }
 }));
 
@@ -31,8 +37,8 @@ function NavigationDrawer(props) {
   const drawer = (
     <div>
       <div className={classes.toolbar} />
-      <Divider />
-      <List>
+      <Divider className={classes.divider_custom} />
+      <List className={classes.drawerBackground_List}>
         <ListItem button>
           <ListItemIcon>
             <AccountCircleIcon />
@@ -52,8 +58,8 @@ function NavigationDrawer(props) {
           <ListItemText primary="Add a Project" />
         </ListItem>
       </List>
-      <Divider />
-      <List>
+      <Divider className={classes.divider_custom} />
+      <List className={classes.drawerBackground_List}>
         <ListItem button>
           <ListItemIcon>
             <SettingsOutlinedIcon />

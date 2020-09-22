@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(1, 2)
   },
   list: {
-    width: 200,
+    minWidth: 200,
     height: 230,
     backgroundColor: theme.palette.background.paper,
     overflow: 'auto'
@@ -44,8 +44,8 @@ function union(a, b) {
 export default function TransferList() {
   const classes = useStyles();
   const [checked, setChecked] = React.useState([]);
-  const [left, setLeft] = React.useState([0, 1, 2, 3]);
-  const [right, setRight] = React.useState([4, 5, 6, 7]);
+  const [left, setLeft] = React.useState(['Block double submission 1', 'Block double submission 2', 'Block double submission 3', 'Block double submission 4']);
+  const [right, setRight] = React.useState([]);
 
   const leftChecked = intersection(checked, left);
   const rightChecked = intersection(checked, right);
@@ -116,7 +116,7 @@ export default function TransferList() {
                   inputProps={{ 'aria-labelledby': labelId }}
                 />
               </ListItemIcon>
-              <ListItemText id={labelId} primary={`List item ${value + 1}`} />
+              <ListItemText id={labelId} primary={`${value}`} />
             </ListItem>
           );
         })}
@@ -127,7 +127,7 @@ export default function TransferList() {
 
   return (
     <Grid container spacing={2} justify="center" alignItems="center" className={classes.root}>
-      <Grid item>{customList('Choices', left)}</Grid>
+      <Grid item>{customList('Not completed', left)}</Grid>
       <Grid item>
         <Grid container direction="column" alignItems="center">
           <Button
@@ -152,7 +152,7 @@ export default function TransferList() {
           </Button>
         </Grid>
       </Grid>
-      <Grid item>{customList('Chosen', right)}</Grid>
+      <Grid item>{customList('Completed', right)}</Grid>
     </Grid>
   );
 }

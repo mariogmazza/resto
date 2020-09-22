@@ -8,7 +8,11 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import ChatSharpIcon from '@material-ui/icons/ChatSharp';
 import AssignmentOutlinedIcon from '@material-ui/icons/AssignmentOutlined';
 import AssignmentTurnedInOutlinedIcon from '@material-ui/icons/AssignmentTurnedInOutlined';
-import ToDoList from './ToDoList';
+import Grid from '@material-ui/core/Grid';
+import TodoListAccordion from './TodoListAccordion/TodoListAccordion';
+import SaveTodoListAccordion from './TodoListAccordion/SaveTodoListAccordion';
+import CommentsAccordion from './CommentsAccordion';
+import CompletedTasksAccordion from './CompletedTasksAccordion';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -17,6 +21,12 @@ const useStyles = makeStyles((theme) => ({
   heading: {
     fontSize: theme.typography.pxToRem(15),
     fontWeight: theme.typography.fontWeightRegular
+  },
+  closedAccord_paper: {
+    background: '#00897b',
+    color: '#ffffff',
+    fontSize: theme.typography.pxToRem(12),
+    fontWeight: theme.typography.fontWeightLight
   }
 }));
 
@@ -30,7 +40,7 @@ export default function CardExpansionPanel() {
   };
   return (
     <div className={classes.root}>
-      <Accordion expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
+      <Accordion className={classes.closedAccord_paper} expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel1bh-content"
@@ -44,7 +54,27 @@ export default function CardExpansionPanel() {
           </Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <ToDoList />
+          <Grid
+            container
+            direction="column"
+            justify="flex-start"
+          >
+            <Grid item xs>
+              <TodoListAccordion />
+            </Grid>
+            <Grid item xs>
+              <Grid
+                container
+                direction="row"
+                justify="flex-end"
+                alignItems="flex-end"
+              >
+                <Grid item>
+                  <SaveTodoListAccordion />
+                </Grid>
+              </Grid>
+            </Grid>
+          </Grid>
         </AccordionDetails>
       </Accordion>
 
@@ -60,10 +90,7 @@ export default function CardExpansionPanel() {
           <Typography className={classes.heading}>Comments</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
-            Donec placerat, lectus sed mattis semper, neque lectus feugiat lectus, varius pulvinar
-            diam eros in elit. Pellentesque convallis laoreet laoreet.
-          </Typography>
+          <CommentsAccordion />
         </AccordionDetails>
       </Accordion>
 
@@ -79,10 +106,7 @@ export default function CardExpansionPanel() {
           <Typography className={classes.heading}>Tasks completed</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
-            Nunc vitae orci ultricies, auctor nunc in, volutpat nisl. Integer sit amet egestas eros,
-            vitae egestas augue. Duis vel est augue.
-          </Typography>
+          <CompletedTasksAccordion />
         </AccordionDetails>
       </Accordion>
 

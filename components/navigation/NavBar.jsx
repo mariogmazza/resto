@@ -5,7 +5,6 @@ import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 import { makeStyles } from '@material-ui/core/styles';
 import MenuIcon from '@material-ui/icons/Menu';
-import blue from '@material-ui/core/colors/blue';
 import NavigationDrawer from './NavigationDrawer';
 
 const drawerWidth = 240;
@@ -16,7 +15,8 @@ const useStyles = makeStyles((theme) => ({
       width: `calc(100% - ${drawerWidth}px)`,
       marginLeft: drawerWidth
     },
-    backgroundColor: blue[300]
+    backgroundColor: '#ff6e40',
+    color: '#6d4c41'
   },
   menuButton: {
     marginRight: theme.spacing(2),

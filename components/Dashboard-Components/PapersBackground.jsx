@@ -6,7 +6,6 @@ import CardHeader from '@material-ui/core/CardHeader';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import Divider from '@material-ui/core/Divider';
-import blue from '@material-ui/core/colors/blue';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -20,8 +19,8 @@ const useStyles = makeStyles((theme) => ({
   },
   title: {
     textAlign: 'center',
-    backgroundColor: blue[300],
-    color: 'white'
+    backgroundColor: '#34515e',
+    color: '#e0e0e0'
   },
   content: {
     textAlign: 'center',
@@ -38,29 +37,27 @@ export default function PaperBackground() {
   // const { titleProp, contentProp } = props;
 
   return (
-    <>
-      <Grid
-        container
-        direction="row"
-        justify="space-between"
-        alignItems="flex-start"
-        className={classes.root}
-      >
-        {item.map((val) => (
-          <Card key={val.titleProp}>
-            <CardHeader
-              className={classes.title}
-              title={val.titleProp || 'Place Holder'}
-            />
-            <Divider variant="middle" />
-            <CardContent className={classes.content}>
-              <Typography variant="h4">
-                {val.contentProp || 'Content'}
-              </Typography>
-            </CardContent>
-          </Card>
-        ))}
-      </Grid>
-    </>
+    <Grid
+      container
+      direction="row"
+      justify="space-between"
+      alignItems="flex-start"
+      className={classes.root}
+    >
+      {item.map((val) => (
+        <Card key={val.titleProp}>
+          <CardHeader
+            className={classes.title}
+            title={val.titleProp || 'Place Holder'}
+          />
+          <Divider variant="middle" />
+          <CardContent className={classes.content}>
+            <Typography variant="h4">
+              {val.contentProp || 'Content'}
+            </Typography>
+          </CardContent>
+        </Card>
+      ))}
+    </Grid>
   );
 }

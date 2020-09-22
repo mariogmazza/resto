@@ -1,10 +1,10 @@
-import React from 'react';
-import Layout from '../components/Layout/Layout';
+import React from 'react'
+import ProjectViewDev from '../components/Dashboard-Components/ProjectViewDev'
 
 export default function Index() {
   return (
     <>
-      <Layout />
+      <ProjectViewDev />
     </>
-  );
+  )
 }
