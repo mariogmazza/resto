@@ -1,10 +1,15 @@
+import { Button } from '@material-ui/core';
 import React from 'react'
-import ProjectViewDev from '../components/Dashboard-Components/ProjectViewDev'
+import Link from '../src/Link';
+
 
 export default function Index() {
   return (
     <>
-      <ProjectViewDev />
+      <Link href="/about" color="secondary">
+        Go to the about page
+    </Link>
+      <Button variant="contained" color='primary' >PEPE</Button>
     </>
   )
 }

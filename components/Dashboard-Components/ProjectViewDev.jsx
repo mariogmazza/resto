@@ -1,12 +1,10 @@
 import React from 'react';
-import ProjectCard from './ProjectCard';
-import Layout from '../Layout/Layout';
 
 function ProjectViewDev() {
   return (
-    <Layout>
-      <ProjectCard />
-    </Layout>
+    <div>
+      <h2>Hello world!</h2>
+    </div>
   );
 }
 
